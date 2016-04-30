@@ -21,17 +21,24 @@ class ChessboardTest < Minitest::Test
   def test_gets_space
     i = rand(0..7)
     j = rand(0..7)
-    space = @c.get(i,j)
+    space = @c.get_space(i,j)
 
     assert_equal Space, space.class
     assert_equal i, space.x
     assert_equal j, space.y
     assert_equal 0, space.val
 
-    space = @c.get(i, 9)
+    space = @c.get_space(i, 9)
     assert_equal Space, space.class
     assert_equal i, space.x
     assert_equal 9, space.y
     assert_equal :not_on_board, space.val
+  end
+
+  def test_sets_space
+    i = rand(0..7)
+    j = rand(0..7)
+    @c.set_space(i,j,10)
+    assert_equal 10, @c.get_space(i,j).val
   end
 end
