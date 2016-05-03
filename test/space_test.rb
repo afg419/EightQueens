@@ -67,4 +67,10 @@ class SpaceTest < Minitest::Test
     assert(@s.equals(3,4))
     refute(@s.equals(3,5))
   end
+
+  def test_it_knows_its_a_queen
+    refute @s.is_queen?
+    t = Space.new(3,4,1)
+    assert t.is_queen?
+  end
 end

@@ -16,6 +16,10 @@ class Space
     end
   end
 
+  def is_queen?
+    val == 1
+  end
+
   def place(new_val)
     self.val = new_val
   end
@@ -30,5 +34,9 @@ class Space
 
   def shares_diagonal_with(space)
     (y - space.y == x - space.x) || (y - space.y ==  - x + space.x)
+  end
+
+  def queen_killable?(space)
+    shares_row_with(space) || shares_column_with(space) || shares_diagonal_with(space)
   end
 end

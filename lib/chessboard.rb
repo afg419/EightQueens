@@ -4,7 +4,7 @@ require_relative 'space'
 class Chessboard
   attr_reader :spaces
 
-  def initialize(n) #n is dimension of board
+  def initialize(n)
     @spaces = (0..(n-1)).map do |i|
       (0..(n-1)).map do |j|
         Space.new(i, j, 0)
