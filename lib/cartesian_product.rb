@@ -1,9 +1,9 @@
 module Prod
-  def cartesian(array1, array2)
+  def self.cartesian(array1, array2)
     result = []
     array1.each do |i|
       array2.each do |j|
-        [] << [i,j]
+        result << [i,j]
       end
     end
     result

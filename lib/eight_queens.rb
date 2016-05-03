@@ -1,8 +1,8 @@
+require 'pry'
 require_relative 'chessboard'
 require_relative 'cartesian_product'
 
 class EightQueens
-  include Prod
   attr_reader :board
 
   def initialize(chessboard)
@@ -19,7 +19,7 @@ class EightQueens
 
   def legal_arrangement?
     queen_pairs = Prod.cartesian(queens, queens)
-    queen_pairs.all do |q1, q2|
+    queen_pairs.all? do |q1, q2|
       !q1.queen_killable?(q2)
     end
   end

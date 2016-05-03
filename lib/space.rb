@@ -37,6 +37,6 @@ class Space
   end
 
   def queen_killable?(space)
-    shares_row_with(space) || shares_column_with(space) || shares_diagonal_with(space)
+    (shares_row_with(space) || shares_column_with(space) || shares_diagonal_with(space)) && !equals(space)
   end
 end
