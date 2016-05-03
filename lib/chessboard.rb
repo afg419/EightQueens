@@ -1,15 +1,14 @@
 require 'pry'
 require_relative 'space'
+require_relative 'cartesian_product'
 
 class Chessboard
   attr_reader :spaces
 
-  def initialize(n) #n is dimension of board
-    @spaces = (0..(n-1)).map do |i|
-      (0..(n-1)).map do |j|
-        Space.new(i, j, 0)
-      end
-    end.flatten
+  def initialize(n)
+    @spaces = Prod.cartesian((0..(n-1)),(0..(n-1))).map do |i,j|
+      Space.new(i,j,0)
+    end
   end
 
   def get_space(x,y)
